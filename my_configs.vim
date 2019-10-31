@@ -143,13 +143,31 @@ autocmd BufNewFile,BufRead *.test set ft=sh
 " mysql .cnf file highlight, comment
 autocmd BufNewFile,BufRead *.cnf set ft=sh
 
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           python indent                             "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " python config
-au BufNewFile,BufRead *.py
-      \ set tabstop=4   "tab宽度
-      \ set softtabstop=4 
-      \ set shiftwidth=4  
-      \ set textwidth=80  "行最大宽度
-      \ set expandtab       "tab替换为空格键
-      \ set autoindent      "自动缩进
-      \ set fileformat=unix   "保存文件格式
+" autocmd FileType python setlocal
+"       \ tabstop=2       " tab宽度
+"       \ softtabstop=2
+"       \ shiftwidth=2
+"       \ textwidth=80    " 行最大宽度
+"       \ expandtab       " tab替换为空格键
+"       \ autoindent      " 自动缩进
+"       \ fileformat=unix " 保存文件格式
+
+autocmd FileType python setlocal 
+      \ tabstop=2
+      \ softtabstop=2
+      \ shiftwidth=2
+      \ textwidth=90
+      \ expandtab
+      \ autoindent
+      \ fileformat=unix
+
+" I don't want to get help manual
+nmap <F1> <nop>
+
+" disable EX mode
+map q: <Nop>
+nnoremap Q <nop>

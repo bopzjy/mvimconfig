@@ -131,6 +131,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ludovicchabant/vim-gutentags'
 
 " Cscove: create, load, update database of cscope autocally
+" but only `CscopeFindInteractive` is used now
 " ;fc  -->  Find functions calling this function
 " Plugin 'brookhong/cscope.vim'
 
@@ -139,14 +140,33 @@ Plugin 'ludovicchabant/vim-gutentags'
 " align Text
 Plugin 'junegunn/vim-easy-align'
 
-" guess the root floder for current project, used by vim-breakpoint.
+" guess the root floder for current project, used by vim-breakpoint, cscope...
 Plugin 'dbakker/vim-projectroot'
 
 " set bp and save them to a file in root floder
 Plugin 'HugoNikanor/vim-breakpoint'
 
-" todo
+" wondorful python indent, for example:
+" func(
+"   a
+"   cds
+"   fg
+" )
 Plugin 'Vimjas/vim-python-pep8-indent'
+
+" super fast Cscope results navigation using quickfix window.
+Plugin 'ronakg/quickr-cscope.vim'
+
+" async
+Plugin 'skywind3000/asyncrun.vim'
+
+" A Vim plugin which shows a git diff in the 'gutter' (sign column).
+Plugin 'airblade/vim-gitgutter'
+
+" atomatically reestablishes the existing cscope connection 
+" when you change &ignorecase or 
+" when the cscope database has been updated.
+" Plugin 'ktchen14/cscope-auto'
 
 " man page
 " Plugin 'nhooyr/neoman.vim'
@@ -171,4 +191,3 @@ filetype plugin indent on    " required
 source ~/.vim/custom_config/basic.vim
 source ~/.vim/custom_config/plugin.vim
 source ~/.vim/custom_config/my_configs.vim
-

@@ -179,19 +179,30 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " cscope setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("cscope")
-  set csprg=/usr/bin/cscope
-  set csto=1
-  set cst
-  set nocsverb
-  " add any database in current directory
-  if filereadable("cscope.out")
-      cs add cscope.out
-  endif
-  set csverb
-endif
-
-nnoremap <C-g> :cs find g <C-R>=expand("<cword>")<CR><CR>
+" if has("cscope")
+"   set csprg=/usr/bin/cscope
+"   set csto=1
+"   set cst
+"   set nocsverb
+"   " add any database in current directory
+"   if filereadable("cscope.out")
+"       cs add cscope.out
+"   endif
+"   set csverb
+" endif
+"
+" let cs_out_path = projectroot#guess() + "/cscope.out"
+" if filereadable(cs_out_path)
+"   cs add cs_out_path
+" endif
+"
+" nnoremap <C-g> :cs find g <C-R>=expand("<cword>")<CR><CR>
+let g:test_id = 1
+function! g:ResetCscope()
+  cscope reset
+  let g:test_id = g:test_id + 1
+  return g:test_id
+endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -398,6 +409,12 @@ map <F6> <ESC>:GutentagsToggleEnabled<CR>
 " dafault closed
 let g:gutentags_enabled = 0
 
+"""""""""""""""" important """""""""""""""""""""""""""
+" Like |GutentagsUpdate|, but updates the current tags
+" file with the whole project instead of just the
+" current buffer.
+" :GutentagsUpdate!
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  Cscove: create, load, update database of cscope autocally  "
@@ -454,3 +471,51 @@ xmap ga <Plug>(EasyAlign)
 
 " Delimiter key (a single keystroke; <Space>, =, :, ., |, &, #, ,) 
 " or an arbitrary regular expression followed by <CTRL-X>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  quickr-cscope: Vim plugin for super fast Cscope results navigation using quickfix window.  "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" disable the default key mappings
+let g:quickr_cscope_keymaps = 0
+
+" clear switchbuf, in order to open file in current window
+" set switchbuf = ''
+
+" s: all symbol occurances of word under the cursor
+" g: global definition of the word under the cursor
+" c: all callers of the function name under the cursor
+" f: all files matching filename under the cursor
+" i: all files including filename under the cursor
+" t: text matching word under the cursor/visualy selected text
+" e: Enter an egrep patter for searching
+" d: all the functions called by funtion name under the cursor
+nmap <C-[>s <plug>(quickr_cscope_symbols)
+nmap <C-[>g <plug>(quickr_cscope_global)
+nmap <C-[>c <plug>(quickr_cscope_callers)
+nmap <C-[>f <plug>(quickr_cscope_files)
+nmap <C-[>i <plug>(quickr_cscope_includes)
+nmap <C-[>t <plug>(quickr_cscope_text)
+nmap <C-[>e <plug>(quickr_cscope_egrep)
+nmap <C-[>d <plug>(quickr_cscope_functions)
+
+" let g:cscope_auto_update = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" async: run shell commands in background and read output in the quickfix window in realtime   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" non-zero to ring a bell after finished
+let g:asyncrun_bell = 1
+
+" 0:async(require vim 7.4.1829) 1:sync 2:shell
+let g:asyncrun_mode = 0 
+
+" above zero to open quickfix window at given height after command starts
+let g:asyncrun_open = 0
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  vim-gitgutter: A Vim plugin which shows a git diff in the 'gutter' (sign column)  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" When you make a change to a file tracked by git, the diff markers should appear automatically. 
+" The delay is governed by vim's updatetime option; the default value is 4000, i.e. 4 seconds,
+set updatetime=100
