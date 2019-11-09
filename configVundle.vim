@@ -163,6 +163,12 @@ Plugin 'skywind3000/asyncrun.vim'
 " A Vim plugin which shows a git diff in the 'gutter' (sign column).
 Plugin 'airblade/vim-gitgutter'
 
+" a dark vim theme
+Plugin 'dracula/vim'
+
+" a vim theme with light/dark
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+
 " atomatically reestablishes the existing cscope connection 
 " when you change &ignorecase or 
 " when the cscope database has been updated.

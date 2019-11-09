@@ -171,3 +171,21 @@ nmap <F1> <nop>
 " disable EX mode
 map q: <Nop>
 nnoremap Q <nop>
+nnoremap gQ <nop>
+
+" disable recording mode
+nnoremap q <nop>
+
+
+"""""""""""""""""""""""""""""
+"  vim color theme setting  "
+"""""""""""""""""""""""""""""
+
+" colorscheme dracula
+
+" onehalf
+set t_Co=256
+set cursorline
+" colorscheme onehalflight
+" let g:airline_theme='onehalfdark'
+

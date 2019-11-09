@@ -164,7 +164,7 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
-set expandtab
+" set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
@@ -183,6 +183,10 @@ set si "Smart indent
 set wrap "Wrap lines
 set cindent "cindent"
 
+" see hidden character
+" set list
+" <tab> show as ">-"
+" set listchars=tab:>-
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
