@@ -164,14 +164,14 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
-" set expandtab
+set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 set sts=2
 
 " Linebreak on 500 characters
@@ -186,7 +186,7 @@ set cindent "cindent"
 " see hidden character
 " set list
 " <tab> show as ">-"
-" set listchars=tab:>-
+set listchars=tab:>-
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
