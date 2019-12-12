@@ -122,7 +122,7 @@ set foldcolumn=1
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-" syntax enable
+syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
 " if $COLORTERM == 'gnome-terminal'
@@ -134,7 +134,18 @@ set foldcolumn=1
 " catch
 " endtry
 
-" set background=dark
+set background=dark
+" set background=light
+
+let g:solarized_termcolors=256
+colorscheme gruvbox
+" colorscheme solarized
+" colorscheme violet
+" colorscheme tango
+" colorscheme PaperColor
+" colorscheme gryffin
+" colorscheme lucius
+" colorscheme peaksea
 
 " Set extra options when running in GUI mode
 " if has("gui_running")
@@ -164,7 +175,7 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
-set expandtab
+set expandtab!
 
 " Be smart when using tabs ;)
 set smarttab
@@ -184,7 +195,7 @@ set wrap "Wrap lines
 set cindent "cindent"
 
 " see hidden character
-" set list
+set list
 " <tab> show as ">-"
 set listchars=tab:>-
 

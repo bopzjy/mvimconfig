@@ -32,9 +32,9 @@ inoremap $q ''<esc>i
 inoremap $e ""<esc>i
 inoremap $t <><esc>i
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                          命令行模式快捷键                           "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""
+"               命令行模式快捷键                "
+"""""""""""""""""""""""""""""""""""""""""""""""""
 cnoremap <C-A>		<Home>
 cnoremap <C-E>		<End>
 cnoremap <C-K>		<C-U>
@@ -43,21 +43,6 @@ cnoremap <C-N> <Down>
 " 默认情况下<C-J>会相当于在命令行下按下o, 不需要这样
 " <C-J> 留着做其他事情
 map <C-J> <NOP>
-
-" 配色
-syntax on
-syntax enable
-let g:solarized_termcolors=256
-" set background=light
-colorscheme gruvbox
-set background=dark
-" colorscheme solarized
-" colorscheme violet
-" colorscheme tango
-" colorscheme PaperColor
-" colorscheme gryffin
-" colorscheme lucius
-" colorscheme peaksea
 
 " 去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 " set nocompatible
@@ -87,8 +72,8 @@ set ttyfast
 set cmdheight=1
 
 " cpp 的 commentstring 设置为"// " ('\'为转义)
-autocmd FileType cpp setlocal commentstring=//%s
-autocmd FileType c setlocal commentstring=//%s
+" autocmd FileType cpp setlocal commentstring=//%s
+" autocmd FileType c setlocal commentstring=//%s
 
 " 当.vimrc、my_configs.vim、plugin.vim、configVundle.vim修改后自动加载vimrc，
 " augroup auto_load_vimrc

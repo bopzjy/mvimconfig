@@ -110,11 +110,22 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_java = 1
 
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-let g:NERDCustomDelimiters = { 'cpp': { 'left': '/**','right': '*/' } }
-let g:NERDCustomDelimiters = { 'cc': { 'left': '/*','right': '*/' } }
-let g:NERDCustomDelimiters = { 'bp': { 'left': '#','right': '' } }
-let g:NERDCustomDelimiters = { 'cnf': { 'left': '#','right': '' } }
+let g:NERDCustomDelimiters = {
+    \ 'c': { 'left': '/*','right': '*/' }, 
+    \ 'cc': { 'left': '/*','right': '*/' },
+    \ 'cpp': { 'left': '/*','right': '*/' },
+    \ 'bp': { 'left': '#','right': '' },
+    \ 'cnf': { 'left': '#','right': '' },
+    \ 'test': { 'left': '#','right': '' }
+\ }
+" let g:NERDCustomDelimiters = {
+"     \ 'ruby': { 'left': '#', 'leftAlt': 'FOO', 'rightAlt': 'BAR' },
+"     \ 'grondle': { 'left': '{{', 'right': '}}' }
+" \ }
+" let g:NERDCustomDelimiters = { 'cpp': { 'left': '/**','right': '*/' } }
+" let g:NERDCustomDelimiters = { 'cc': { 'left': '/*','right': '*/' } }
+" let g:NERDCustomDelimiters = { 'bp': { 'left': '#','right': '' } }
+" let g:NERDCustomDelimiters = { 'cnf': { 'left': '#','right': '' } }
 " let g:NERDCustomDelimiters = { 'test': { 'left': '#','right': '' } }
 
 " Allow commenting and inverting empty lines (useful when commenting a region)
@@ -519,3 +530,15 @@ let g:asyncrun_open = 0
 " When you make a change to a file tracked by git, the diff markers should appear automatically. 
 " The delay is governed by vim's updatetime option; the default value is 4000, i.e. 4 seconds,
 set updatetime=100
+
+" To keep your Vim snappy, vim-gitgutter will suppress the signs when a file has more than 500 changes.
+" As soon as the number of changes falls below the limit vim-gitgutter will show the signs again.
+" You can configure the threshold with:
+let g:gitgutter_max_signs = 5000
+
+"""""""""""""""""""""""""""""""
+"  vim-fugitive: Git wrapper  "
+"""""""""""""""""""""""""""""""
+" Global maps can be disabled with the g:fugitive_no_maps option.
+let g:fugitive_no_maps = 1
+
