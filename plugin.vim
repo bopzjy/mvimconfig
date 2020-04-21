@@ -111,8 +111,8 @@ let g:NERDAltDelims_java = 1
 
 " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = {
-    \ 'c': { 'left': '/*','right': '*/' }, 
-    \ 'cc': { 'left': '/*','right': '*/' },
+    \ 'c': { 'left': '//','right': '' }, 
+    \ 'cc': { 'left': '//','right': '' },
     \ 'cpp': { 'left': '/*','right': '*/' },
     \ 'bp': { 'left': '#','right': '' },
     \ 'cnf': { 'left': '#','right': '' },
@@ -410,12 +410,15 @@ map g# <Plug>(incsearch-nohl-g#)
 set statusline+=\ %{gutentags#statusline()}
 
 " 默认在项目根目录下创建tags，现在统一放到一个文件夹上
-let g:gutentags_cache_dir = "~/.ctags/"
+let g:gutentags_cache_dir = "~/.ctags_files/"
+
+" mysql里ctags，也会给.ic文件生成tags
+let g:gutentags_ctags_extra_args = [ '--langmap=c++:+.ic' ]
 
 " Some debugging/troubleshooting commands are also available if the
 let g:gutentags_define_advanced_commands = 1
 
-map <F6> <ESC>:GutentagsToggleEnabled<CR>
+map <F6> <ESC>:GutentagsUpdate<CR>
 
 " dafault closed
 let g:gutentags_enabled = 0
