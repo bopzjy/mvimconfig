@@ -39,6 +39,9 @@ nnoremap <F8> :YcmCompleter ClearCompilationFlagCache<CR>
 set completeopt=menu,menuone
 let g:ycm_add_preview_to_completeopt = 0
 
+" 默认下如果光标停留，就会展示一些文档信息，不想要这个
+let g:ycm_auto_hover = ''
+
 " YCM 补全菜单配色
 " 菜单
 highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
@@ -220,13 +223,13 @@ endfunction
 " fswitch setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " 将定义和实现之间快速切换的快捷键设置为;sw
-nmap <silent> <Leader>sw :FSHere<cr>
+" nmap <silent> <Leader>sw :FSHere<cr>
 " 让 cc 也和 h 成为companion
-augroup myccfiles
-    au!
-    au BufEnter *.cc let b:fswitchdst  = 'hh,hpp,h'
-    au BufEnter *.h let b:fswitchdst  = 'c,cpp,cc,m'
-augroup END
+" augroup myccfiles
+"     au!
+"     au BufEnter *.cc let b:fswitchdst  = 'hh,hpp,h'
+"     au BufEnter *.h let b:fswitchdst  = 'c,cpp,cc,m'
+" augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " protodef setting
@@ -377,6 +380,40 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " 默认情况下 <C-J> 往下导航，我更习惯于<TAB>，以下命令可以改默认的映射
 " let g:Lf_CommandMap = {'<C-J>':['<TAB>'], '<C-K>':['<S-TAB>']}
+" 搜当前文件的函数
+map <leader>g <ESC>:LeaderfFunction<CR>
+
+" 全量搜索tag
+map <leader>s <ESC>:Leaderf gtags --all<CR>
+
+" Set this option to change the location of the cache directory
+let g:Lf_CacheDirectory = '/home/zanye.zjy/zanye.zjy/'
+
+let $GTAGSCONF = '/home/zanye.zjy/.gtags.conf'
+
+" automatically generates the gtags database
+let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_GtagsAutoUpdate = 1
+
+" 下面两个配置配套使用
+let g:Lf_GtagsSource = 2
+let g:Lf_GtagsfilesCmd = {
+            \ '.git': 'git ls-files --recurse-submodules',
+            \ '.hg': 'hg files',
+            \ 'default': 'rg --no-messages --files'
+            \}
+
+" gtags的配置文件，从share中考出来，主要是也考虑了'.ic'文件
+let g:Lf_Gtagsconf = '/home/zanye.zjy/.gtags.conf'
+
+" 悬浮框
+let g:Lf_WindowPosition = 'popup'
+
+" 悬浮框中可以预览
+let g:Lf_PreviewInPopup = 1
+
+" 终端如果不关掉会乱码
+let g:Lf_ShowDevIcons = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " incsearch setting
@@ -418,7 +455,8 @@ let g:gutentags_ctags_extra_args = [ '--langmap=c++:+.ic' ]
 " Some debugging/troubleshooting commands are also available if the
 let g:gutentags_define_advanced_commands = 1
 
-map <F6> <ESC>:GutentagsUpdate<CR>
+" 只给git 最总的文件打tag
+let g:gutentags_file_list_command = 'git ls-files --recurse-submodules'
 
 " dafault closed
 let g:gutentags_enabled = 0
@@ -459,7 +497,7 @@ let g:tagbar_autoclose = 1
 "  vim-breakpoint: toggle breakpoint and save it to .breakpoint_[filename]  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " toggle and save
-nmap <leader>a :BreakpointToggle<CR>:BreakpointSave<CR>
+" nmap <leader>a :BreakpointToggle<CR>:BreakpointSave<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -476,14 +514,14 @@ xmap ga <Plug>(EasyAlign)
 " 2. press "ga" (NOTES: not ":ga") to enter interactive-mode
 " 3. if "delimiter key" in {<Space>, =, :, ., |, &, #, ,} then
 "       a. input it
-"       b. press <CR> 
+"       b. press <CR>
 "    else
 "       a. <CTRL-X> into regex mode
 "       b. input regex representing the "delimiter key"
-"       c. press <CR> 
+"       c. press <CR>
 "    end
 
-" Delimiter key (a single keystroke; <Space>, =, :, ., |, &, #, ,) 
+" Delimiter key (a single keystroke; <Space>, =, :, ., |, &, #, ,)
 " or an arbitrary regular expression followed by <CTRL-X>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -503,14 +541,14 @@ let g:quickr_cscope_keymaps = 0
 " t: text matching word under the cursor/visualy selected text
 " e: Enter an egrep patter for searching
 " d: all the functions called by funtion name under the cursor
-nmap <C-[>s <plug>(quickr_cscope_symbols)
-nmap <C-[>g <plug>(quickr_cscope_global)
-nmap <C-[>c <plug>(quickr_cscope_callers)
-nmap <C-[>f <plug>(quickr_cscope_files)
-nmap <C-[>i <plug>(quickr_cscope_includes)
-nmap <C-[>t <plug>(quickr_cscope_text)
-nmap <C-[>e <plug>(quickr_cscope_egrep)
-nmap <C-[>d <plug>(quickr_cscope_functions)
+" nmap <C-[>s <plug>(quickr_cscope_symbols)
+" nmap <C-[>g <plug>(quickr_cscope_global)
+" nmap <C-[>c <plug>(quickr_cscope_callers)
+" nmap <C-[>f <plug>(quickr_cscope_files)
+" nmap <C-[>i <plug>(quickr_cscope_includes)
+" nmap <C-[>t <plug>(quickr_cscope_text)
+" nmap <C-[>e <plug>(quickr_cscope_egrep)
+" nmap <C-[>d <plug>(quickr_cscope_functions)
 
 " let g:cscope_auto_update = 0
 
@@ -521,7 +559,7 @@ nmap <C-[>d <plug>(quickr_cscope_functions)
 let g:asyncrun_bell = 1
 
 " 0:async(require vim 7.4.1829) 1:sync 2:shell
-let g:asyncrun_mode = 0 
+let g:asyncrun_mode = 0
 
 " above zero to open quickfix window at given height after command starts
 let g:asyncrun_open = 0
@@ -530,7 +568,7 @@ let g:asyncrun_open = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  vim-gitgutter: A Vim plugin which shows a git diff in the 'gutter' (sign column)  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" When you make a change to a file tracked by git, the diff markers should appear automatically. 
+" When you make a change to a file tracked by git, the diff markers should appear automatically.
 " The delay is governed by vim's updatetime option; the default value is 4000, i.e. 4 seconds,
 set updatetime=100
 

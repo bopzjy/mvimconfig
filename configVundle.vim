@@ -44,7 +44,7 @@ Plugin 'Valloric/YouCompleteMe'
 " generate a .ycm_extra_conf.py file for use with YouCompleteMe
 " generate a .color_coded file for use with color_coded
 " 基本上没什么用，因为要用clang编译，不方便线上使用
-Plugin 'rdnetto/YCM-Generator'
+" Plugin 'rdnetto/YCM-Generator'
 
 " gruvbox color scheme
 Plugin 'morhetz/gruvbox'
@@ -62,7 +62,7 @@ Plugin 'glts/vim-textobj-comment'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " fast switch between header and implementation
-Plugin 'derekwyatt/vim-fswitch'
+" Plugin 'derekwyatt/vim-fswitch'
 
 " copy pototype to implementation
 Plugin 'derekwyatt/vim-protodef'
@@ -88,7 +88,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'flazz/vim-colorschemes'
 
 " 自动选定光标下最近括号内的所用内容
-Plugin 'gcmt/wildfire.vim'
+" Plugin 'gcmt/wildfire.vim'
 
 " 搜索神器，用vimscript写的，性能很差，但是可定制化好
 " Plugin 'ctrlpvim/ctrlp.vim'
@@ -99,7 +99,7 @@ Plugin 'Yggdroot/LeaderF'
 " 听说ctrlp的默认搜索工具效率比较低，所以采用更高级的ag工具
 " 但是必须要同时安装ag
 " yum install epel the_silver_searcher
-Plugin 'rking/ag.vim'
+" Plugin 'rking/ag.vim'
 
 " 听说是比ctrlp更高效的工具
 " Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -122,7 +122,7 @@ Plugin 'rakr/vim-one'
 " vim 和 tmux 无缝 navigate，还需要配置tmux，具体看官方文档
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Tagbar is a Vim plugin that provides an easy way to browse the tags of 
+" Tagbar is a Vim plugin that provides an easy way to browse the tags of
 " the current file and get an overview of its structure.
 Plugin 'majutsushi/tagbar'
 
@@ -144,7 +144,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'dbakker/vim-projectroot'
 
 " set bp and save them to a file in root floder
-Plugin 'HugoNikanor/vim-breakpoint'
+" Plugin 'HugoNikanor/vim-breakpoint'
 
 " wondorful python indent, for example:
 " func(
@@ -155,7 +155,7 @@ Plugin 'HugoNikanor/vim-breakpoint'
 Plugin 'Vimjas/vim-python-pep8-indent'
 
 " super fast Cscope results navigation using quickfix window.
-Plugin 'ronakg/quickr-cscope.vim'
+" Plugin 'ronakg/quickr-cscope.vim'
 
 " async
 Plugin 'skywind3000/asyncrun.vim'
@@ -169,8 +169,31 @@ Plugin 'dracula/vim'
 " a vim theme with light/dark
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 
-" atomatically reestablishes the existing cscope connection 
-" when you change &ignorecase or 
+" show git-blame info
+Plugin 'zivyangll/git-blame.vim'
+
+" 使用rtags来分析代码
+" <leader>rj   Follow location (declaration)
+" <leader>rJ   Follow declaration location
+" <leader>rf   Find references
+" <leader>rF   Call tree (o - open node, Enter - jump)
+Plugin 'lyuts/vim-rtags'
+
+" show diff on a same file
+" Visually select one section of your file and type :Linediff. Visually select
+" the other section and type :Linediff. It will put vim in to vimdiff mode,
+" showing only the two sections you highlighted previously. Type:LinediffReset
+" to exit vimdiff mode.
+Plugin 'AndrewRadev/linediff.vim'
+
+" TODO: comment it
+" Plugin 'ryanoasis/vim-devicons'
+
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
+
+" atomatically reestablishes the existing cscope connection
+" when you change &ignorecase or
 " when the cscope database has been updated.
 " Plugin 'ktchen14/cscope-auto'
 
